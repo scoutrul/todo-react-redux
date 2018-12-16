@@ -8,13 +8,14 @@ import Button from 'src/views/components/button';
 import './sign-in-page.css';
 
 
-const SignInPage = ({signInWithGithub, signInWithGoogle}) => {
+const SignInPage = ({signInWithGithub, signInWithGoogle, signInWithEmailAndPassword}) => {
   return (
     <div className="g-row sign-in">
       <div className="g-col">
         <h1 className="sign-in__heading">Sign in</h1>
         <Button className="sign-in__button" onClick={signInWithGithub}>GitHub</Button>
         <Button className="sign-in__button" onClick={signInWithGoogle}>Google</Button>
+        <Button className="sign-in__button" onClick={signInWithEmailAndPassword}>EMAIL</Button>
       </div>
     </div>
   );
@@ -33,7 +34,6 @@ SignInPage.propTypes = {
 const mapDispatchToProps = {
   signInWithGithub: authActions.signInWithGithub,
   signInWithGoogle: authActions.signInWithGoogle,
-  signInWithTwitter: authActions.signInWithTwitter
 };
 
 export default withRouter(

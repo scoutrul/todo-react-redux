@@ -1,5 +1,7 @@
 import firebase from 'firebase';
-import { firebaseAuth } from 'src/firebase';
+import {
+  firebaseAuth
+} from 'src/firebase';
 import {
   INIT_AUTH,
   SIGN_IN_ERROR,
@@ -45,14 +47,24 @@ export function signInWithGithub() {
   return authenticate(new firebase.auth.GithubAuthProvider());
 }
 
-
 export function signInWithGoogle() {
   return authenticate(new firebase.auth.GoogleAuthProvider());
 }
 
-
 export function signInWithTwitter() {
   return authenticate(new firebase.auth.TwitterAuthProvider());
+}
+
+export function createUserWithEmailAndPassword(email, password) {
+  return authenticate(new firebase.auth.createUserWithEmailAndPassword(email, password));
+}
+
+export function signInWithEmailAndPassword(email, password) {
+  return authenticate(new firebase.auth.signInWithEmailAndPassword(email, password));
+}
+
+export function signInAnonymously() {
+  return authenticate(new firebase.auth.signInAnonymously());
 }
 
 

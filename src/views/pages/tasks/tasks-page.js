@@ -3,6 +3,7 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
+import { firebaseAuth } from '../../../firebase/firebase'
 
 import { getNotification, notificationActions } from 'src/notification';
 import { getTaskFilter, getVisibleTasks, tasksActions } from 'src/tasks';
@@ -66,8 +67,11 @@ export class TasksPage extends Component {
   }
 
   render() {
+    const { displayName, email } = firebaseAuth.currentUser;
     return (
       <div className="g-row">
+        <div>Hello, { displayName }!</div>
+        <div>{ email }</div>
         <div className="g-col">
           <TaskForm handleSubmit={this.props.createTask} />
         </div>
